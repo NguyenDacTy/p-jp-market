@@ -1,0 +1,10 @@
+.main-banner {
+    text-align: center;
+}
+
+.main-banner img{
+    width: 650px;
+    height: 250px;
+    cursor: pointer;
+    padding-bottom: 25px;
+}

@@ -1,0 +1,27 @@
+.acount-container{
+    margin: auto 20%;
+    padding: 20px;
+}
+.acount-container__infor {
+    display: flex;
+}
+.acount-container__infor-left {
+    margin-right: 10px;
+}
+.acount-container__infor-right {
+    border: .5px solid #e8dfdf;
+}
+.infor-right__title {
+    border-bottom: 1px solid #e8dfdf;
+    display: flex;
+}
+.infor-right__title button {
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    background-color: #FFF;
+}
+.infor-right__title .infor-right__title-login {
+    border-right: 1px solid #e8dfdf;
+}

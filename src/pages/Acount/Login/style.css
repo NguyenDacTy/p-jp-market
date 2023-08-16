@@ -1,0 +1,90 @@
+.login-container {
+    padding-top: 90px;
+    display: flex;
+}
+
+.login-container-left {
+    margin-right: 10px;
+}
+.login-container-right {
+    border: .5px solid #e8dfdf;
+}
+
+.login-container__form {
+    padding: 15px;
+}
+.login-container__form-input {
+    width: 95%;
+    height: 40px;
+    border: 1px solid #dad1d1;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+.login-container__form-email {
+    padding-bottom: 10px;
+}
+.login-container__form-password {
+    padding-bottom: 10px;
+}
+.forget-pass {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: rgb(250, 17, 172);
+}
+.login-container__form-loginbtn {
+    width: 99%;
+    border: 1px solid #dad1d1;
+    border-radius: 4px;
+    padding: 10px;
+    color: #FFF;
+    background-color: rgb(227, 138, 153);
+    cursor: pointer;
+}
+.fs14 {
+    font-size: 14px;
+}
+.login-container__note {
+    color: rgb(148, 163, 184);
+    margin: auto 7%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.login-container__otherLogin {
+    color: rgb(148, 163, 184);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.login-container__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.login-container__btn button {
+    cursor: pointer;
+}
+.login-container__btn-fb {
+    padding: 6px 15px;
+    width: 30%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 8px;
+    margin-right: 100px;
+    border: 1px solid #FFF;
+    background-color: #3B5998;
+    color: #FFF;
+}
+.login-container__btn-gg {
+    padding: 6px 15px;
+    width: 30%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #FFF;
+    background-color: #E14B33;
+    color: #FFF;
+}

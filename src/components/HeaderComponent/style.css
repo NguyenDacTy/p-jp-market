@@ -1,0 +1,105 @@
+.container {
+    margin: 0;
+    width: 100%;
+    background-color: red;
+}
+
+.container-fake {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.header {
+    width: 1200px;
+    margin: 0 auto;
+}
+.header-baner {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+.header-baner__logo {
+    width: 90%;
+    height: 50px;
+    cursor: pointer;
+    margin-right: 70px;
+}
+
+.header-baner__btn {
+    width: 15%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: #f2d61f;
+    border-radius: 4px;
+    gap: 5px;
+    margin-right: 20px;
+}
+.header-baner__search-area {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: 40px;
+}
+.header-baner__search-area Input {
+    caret-color: rgb(255, 0, 225);
+}
+.header-baner__icon-group {
+    width: 16%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.number-cart {
+    padding: 2px 6px;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 12px;
+    font-size: 14px;
+    position: absolute;
+    top: -5px;
+    right: -22%;
+}
+
+.cart-count {
+    position: relative;
+}
+.cart-count .number-cart {
+    position: absolute;
+}
+
+.header-content p{
+    margin: 7px 29%;
+    display: flex;
+    padding-bottom: 6px;
+}
+
+
+.header-content a{
+    display: inline-block;
+    margin-right: 20px;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 14px;
+    padding-left: 14px;
+}
+.header-content a:nth-child(2),
+.header-content a:nth-child(3),
+.header-content a:nth-child(4),
+.header-content a:nth-child(5) {
+    border-left: 1px solid white;
+}
+.header-content a::before {
+    border-left: none;
+} 
+
+.header-content p a:hover{
+    color: orange;
+}

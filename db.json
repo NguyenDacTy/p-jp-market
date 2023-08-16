@@ -1,0 +1,464 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Tảo xoắn Spirulina Japan Algae Nhật Bản 2200 viên",
+      "image": "https://japana.vn/uploads/product/2022/12/26/268x268-1672029557-tao-bien-spirulina-2200-vien4.jpg",
+      "price": "449.000",
+      "oldPrice": "469.000",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Tảo vàng cao cấp Spirulina EX 2000 viên",
+      "image": "https://japana.vn/uploads/product/imageresize/420x420-1677824333-tao-xoan-spirulina-ex-200045.jpg",
+      "price": "1.890.000",
+      "oldPrice": "1.950.000",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Viên uống bổ xương khớp cao cấp ZS Chondroitin 270 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650505821-001dd189-(7).jpg",
+      "price": "1.490.000",
+      "oldPrice": "1.559.000",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Viên uống hỗ trợ điều trị Gout Anserine Minami 240 viên",
+      "image": "https://japana.vn/uploads/product/2019/08/16/268x268-1565954302-inami-240-vien-sieu-thi-nhat-ban-japana-0-(2).jpeg",
+      "price": "530.000",
+      "oldPrice": "650.000",
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Viên uống hỗ trợ điều trị tai biến Nichiei Bussan Nattokinase Premium 10.000FU 300 viên (Nội địa Nhật Bản)",
+      "image": "https://japana.vn/uploads/product/2020/11/24/268x268-1606199426-e-premium-300-vien-sieu-thi-nhat-ban-japana-1.jpeg",
+      "price": "3.290.000",
+      "oldPrice": "3.990.000",
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "Viên uống dầu gan cá 100% Squalene Orihiro 360 viên",
+      "image": "https://japana.vn/uploads/product/2021/03/03/268x268-1614758474--dau-gan-ca-map-100-squalene-orihiro-360-vien.jpeg",
+      "price": "490.000",
+      "oldPrice": "650.000",
+      "categoryId": 1
+    },
+    {
+      "id": 7,
+      "name": "Viên uống hỗ trợ điều trị ung thư Kanehide Bio Okinawa Fucoidan xanh 180 viên (Nội địa)",
+      "image": "https://japana.vn/uploads/product/2023/04/06/268x268-1680764353--pham-ho-tro-dieu-tri-ung-thu-okinawa-fucoidan.jpg",
+      "price": "1.690.000",
+      "oldPrice": "1.790.000",
+      "categoryId": 1
+    },
+    {
+      "id": 8,
+      "name": "Viên uống bổ não Orihiro DHA EPA Nhật Bản 180 viên",
+      "image": "https://japana.vn/uploads/product/2019/07/29/268x268-1564363596--ban-180-vien-sieu-thi-nhat-ban-japana-23-(1).jpeg",
+      "price": "630.000",
+      "oldPrice": "670.000",
+      "categoryId": 1
+    }
+  ],
+  "heartProducts": [
+    {
+      "id": 1,
+      "name": "Trà diếp cá hỗ trợ thải độc Dokudami Orihiro 60 gói",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646121900-tra-thai-doc-diep-ca-dokudami-orihiro-60-goi.jpg",
+      "price": "129.000",
+      "oldPrice": "159.000",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Viên uống hỗ trợ giảm cân 12kg Minami Healthy Foods (Hộp 75 gói x 6 viên)",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122487--12kg-minami-healthy-foods-hop-75-goi-x-6-vien.jpg",
+      "price": "390.000",
+      "oldPrice": "449.000",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Viên uống bổ phổi Kobayashi Nhật Bản 80 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650506000-001do1545-2.jpg",
+      "price": "569.000",
+      "oldPrice": "679.000",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Nước súc miệng Propolinse 600ml (Màu cam)",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507524-001fac582-1.jpg",
+      "price": "189.000",
+      "oldPrice": "219.000",
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Bột uống lọc phổi Tsumura Seihaito 90 (42 gói x 3g)",
+      "image": "https://japana.vn/uploads/product/2022/11/29/268x268-1669709648-loc-phoi-tsumura-seihaito-90-hop-42-goi-x-3g67.jpg",
+      "price": "790.000",
+      "oldPrice": "829.000",
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "Tinh chất hàu tươi hỗ trợ tăng cường sinh lực nam Orihiro 120 viên",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122137--hau-tuoi-120-vien-orihiro-bo-than-trang-duong.jpg",
+      "price": "339.000",
+      "oldPrice": "345.000",
+      "categoryId": 1
+    },
+    {
+      "id": 7,
+      "name": "Đông trùng hạ thảo Fine Japan Cordyceps 120 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507958-137dj3-(5).jpg",
+      "price": "1.259.000",
+      "oldPrice": "1.799.000",
+      "categoryId": 1
+    },
+    {
+      "id": 8,
+      "name": "Viên uống hỗ trợ điều trị ung thư Fine Japan Fucoidan 30 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507838-137dc2-(1).jpg",
+      "price": "1.469.000",
+      "oldPrice": "2.099.000",
+      "categoryId": 1
+    }
+  ],
+  "beautyProducts": [
+    {
+      "id": 1,
+      "name": "Nước uống Collagen Shinnippai Top 5.000mg (Hộp 10 chai x 50ml)",
+      "image": "https://japana.vn/uploads/product/2023/06/23/268x268-1687505093-gen-shinnippai-top-5000mg-hop-10-chai-x-50ml-2.jpg",
+      "price": "519.000",
+      "oldPrice": "700.000",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Viên uống trắng da, trị nám Transino White C Clear 120 viên (Nội địa)",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646121792-thao-duoc-ho-tro-tri-nam-transino-white-c.jpg",
+      "price": "539.000",
+      "oldPrice": "599.000",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Nước uống làm trắng da Shiseido Pure White (Hộp 10 chai x 50ml)",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650506780-001aa411.jpg",
+      "price": "569.000",
+      "oldPrice": "599.000",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Sữa ong chúa Orihiro Nhật Bản 120 viên",
+      "image": "https://japana.vn/uploads/product/2019/05/30/268x268-1559213134-a-ong-chua-orihiro-sieu-thi-nhat-ban-japana-2.jpeg",
+      "price": "590.000",
+      "oldPrice": "728.000",
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Nước yến trẻ hóa làn da Nano Japan Birds Nest Premium Concentrate (Hộp 10 chai x 50ml)",
+      "image": "https://japana.vn/uploads/product/2020/05/07/268x268-1588827006-10-chai-x-50ml-sieu-thi-nhat-ban-japana-2-(1).jpeg",
+      "price": "2.250.000",
+      "oldPrice": "2.590.000",
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "Nước uống thải độc, hỗ trợ giảm cân Nucos Detox Emzyme (Hộp 10 chai x 30ml)",
+      "image": "https://japana.vn/uploads/product/2023/06/07/268x268-1686134261-am-can-nucos-detox-emzyme-hop-30ml-x-10-chai45.jpg",
+      "price": "811.000",
+      "oldPrice": "990.000",
+      "categoryId": 1
+    },
+    {
+      "id": 7,
+      "name": "Mặt nạ nghệ hữu cơ ngăn ngừa lão hóa Wonmom 50g",
+      "image": "https://japana.vn/uploads/product/2023/04/27/268x268-1682578965-at-na-nghe-huu-co-ngan-ngua-lao-hoa-wonmom-50g.jpg",
+      "price": "315.000",
+      "oldPrice": "350.000",
+      "categoryId": 1
+    },
+    {
+      "id": 8,
+      "name": "Nước uống cấp ẩm Hyaluron Top Shinnippai Nhật Bản (Hộp 10 chai x 50ml)",
+      "image": "https://japana.vn/uploads/product/2023/06/23/268x268-1687505952-hyaluron-top-shinnippai-hop-10-chai-x-50ml-256.jpg",
+      "price": "519.000",
+      "oldPrice": "693.000",
+      "categoryId": 1
+    }
+  ],
+  "bodyProducts": [
+    {
+      "id": 1,
+      "name": "Viên uống hỗ trợ tăng chiều cao GH Gold Nhật Bản 120 viên",
+      "image": "https://japana.vn/uploads/product/2023/05/09/268x268-1683607695-302dek01-(3).jpg",
+      "price": "680.000",
+      "oldPrice": "800.000",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Viên uống tăng chiều cao GH Creation EX+ 270 viên",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122262-vien-uong-tang-chieu-cao-gh-creation.jpg",
+      "price": "689.000",
+      "oldPrice": "729.000",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Viên uống giảm cân dầu dừa DHC Forskohlii Soft Capsule 40 viên",
+      "image": "https://japana.vn/uploads/product/2021/03/25/268x268-1616663510-an-dau-dua-dhc-forskohlii-soft-capsule-40-vien.jpg",
+      "price": "249.000",
+      "oldPrice": "350.000",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Giấm đen giảm cân Orihiro Nhật Bản 216 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507140-001bda280-1.jpg",
+      "price": "185.000",
+      "oldPrice": "209.000",
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Kem tan mỡ Nagano Body Firming Cream 100ml",
+      "image": "https://japana.vn/uploads/product/2021/09/01/268x268-1630470552-084fbe38.jpg",
+      "price": "450.000",
+      "oldPrice": "489.000",
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "Viên uống chống nắng nội sinh UV Plus+ Block100 45 viên (Nội địa)",
+      "image": "https://japana.vn/uploads/product/2023/02/22/268x268-1677054184-chong-nang-noi-sinh-uv-plus-block-100-45-vien4.jpg",
+      "price": "245.000",
+      "oldPrice": "360.000",
+      "categoryId": 1
+    },
+    {
+      "id": 7,
+      "name": "Gel hỗ trợ cải thiện sẹo Gentacin Ointment 10g",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650506429-001ej542.jpg",
+      "price": "59.000",
+      "oldPrice": "79.000",
+      "categoryId": 1
+    },
+    {
+      "id": 8,
+      "name": "Viên uống rau củ DHC Nhật Bản 240 viên",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122696-vien-rau-cu-qua-dhc-nhat-ban.jpg",
+      "price": "289.000",
+      "oldPrice": "315.000",
+      "categoryId": 1
+    }
+  ],
+  "newProducts": [
+    {
+      "id": 1,
+      "name": "Trà diếp cá hỗ trợ thải độc Dokudami Orihiro 60 gói",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646121900-tra-thai-doc-diep-ca-dokudami-orihiro-60-goi.jpg",
+      "price": "129.000",
+      "oldPrice": "159.000",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Viên uống hỗ trợ giảm cân 12kg Minami Healthy Foods (Hộp 75 gói x 6 viên)",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122487--12kg-minami-healthy-foods-hop-75-goi-x-6-vien.jpg",
+      "price": "390.000",
+      "oldPrice": "449.000",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Viên uống bổ phổi Kobayashi Nhật Bản 80 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650506000-001do1545-2.jpg",
+      "price": "569.000",
+      "oldPrice": "679.000",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Nước súc miệng Propolinse 600ml (Màu cam)",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507524-001fac582-1.jpg",
+      "price": "189.000",
+      "oldPrice": "219.000",
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Bột uống lọc phổi Tsumura Seihaito 90 (42 gói x 3g)",
+      "image": "https://japana.vn/uploads/product/2022/11/29/268x268-1669709648-loc-phoi-tsumura-seihaito-90-hop-42-goi-x-3g67.jpg",
+      "price": "790.000",
+      "oldPrice": "829.000",
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "Tinh chất hàu tươi hỗ trợ tăng cường sinh lực nam Orihiro 120 viên",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122137--hau-tuoi-120-vien-orihiro-bo-than-trang-duong.jpg",
+      "price": "339.000",
+      "oldPrice": "345.000",
+      "categoryId": 1
+    },
+    {
+      "id": 7,
+      "name": "Đông trùng hạ thảo Fine Japan Cordyceps 120 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507958-137dj3-(5).jpg",
+      "price": "1.259.000",
+      "oldPrice": "1.799.000",
+      "categoryId": 1
+    },
+    {
+      "id": 8,
+      "name": "Viên uống hỗ trợ điều trị ung thư Fine Japan Fucoidan 30 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507838-137dc2-(1).jpg",
+      "price": "1.469.000",
+      "oldPrice": "2.099.000",
+      "categoryId": 1
+    }
+  ],
+  "hotProducts": [
+    {
+      "id": 1,
+      "name": "Trà diếp cá hỗ trợ thải độc Dokudami Orihiro 60 gói",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646121900-tra-thai-doc-diep-ca-dokudami-orihiro-60-goi.jpg",
+      "price": "129.000",
+      "oldPrice": "159.000",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Viên uống hỗ trợ giảm cân 12kg Minami Healthy Foods (Hộp 75 gói x 6 viên)",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122487--12kg-minami-healthy-foods-hop-75-goi-x-6-vien.jpg",
+      "price": "390.000",
+      "oldPrice": "449.000",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Viên uống bổ phổi Kobayashi Nhật Bản 80 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650506000-001do1545-2.jpg",
+      "price": "569.000",
+      "oldPrice": "679.000",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Nước súc miệng Propolinse 600ml (Màu cam)",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507524-001fac582-1.jpg",
+      "price": "189.000",
+      "oldPrice": "219.000",
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Bột uống lọc phổi Tsumura Seihaito 90 (42 gói x 3g)",
+      "image": "https://japana.vn/uploads/product/2022/11/29/268x268-1669709648-loc-phoi-tsumura-seihaito-90-hop-42-goi-x-3g67.jpg",
+      "price": "790.000",
+      "oldPrice": "829.000",
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "Tinh chất hàu tươi hỗ trợ tăng cường sinh lực nam Orihiro 120 viên",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122137--hau-tuoi-120-vien-orihiro-bo-than-trang-duong.jpg",
+      "price": "339.000",
+      "oldPrice": "345.000",
+      "categoryId": 1
+    },
+    {
+      "id": 7,
+      "name": "Đông trùng hạ thảo Fine Japan Cordyceps 120 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507958-137dj3-(5).jpg",
+      "price": "1.259.000",
+      "oldPrice": "1.799.000",
+      "categoryId": 1
+    },
+    {
+      "id": 8,
+      "name": "Viên uống hỗ trợ điều trị ung thư Fine Japan Fucoidan 30 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507838-137dc2-(1).jpg",
+      "price": "1.469.000",
+      "oldPrice": "2.099.000",
+      "categoryId": 1
+    }
+  ],
+  "forYouProducts": [
+    {
+      "id": 1,
+      "name": "Trà diếp cá hỗ trợ thải độc Dokudami Orihiro 60 gói",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646121900-tra-thai-doc-diep-ca-dokudami-orihiro-60-goi.jpg",
+      "price": "129.000",
+      "oldPrice": "159.000",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Viên uống hỗ trợ giảm cân 12kg Minami Healthy Foods (Hộp 75 gói x 6 viên)",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122487--12kg-minami-healthy-foods-hop-75-goi-x-6-vien.jpg",
+      "price": "390.000",
+      "oldPrice": "449.000",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Viên uống bổ phổi Kobayashi Nhật Bản 80 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650506000-001do1545-2.jpg",
+      "price": "569.000",
+      "oldPrice": "679.000",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Nước súc miệng Propolinse 600ml (Màu cam)",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507524-001fac582-1.jpg",
+      "price": "189.000",
+      "oldPrice": "219.000",
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Bột uống lọc phổi Tsumura Seihaito 90 (42 gói x 3g)",
+      "image": "https://japana.vn/uploads/product/2022/11/29/268x268-1669709648-loc-phoi-tsumura-seihaito-90-hop-42-goi-x-3g67.jpg",
+      "price": "790.000",
+      "oldPrice": "829.000",
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "Tinh chất hàu tươi hỗ trợ tăng cường sinh lực nam Orihiro 120 viên",
+      "image": "https://japana.vn/uploads/product/2022/03/01/268x268-1646122137--hau-tuoi-120-vien-orihiro-bo-than-trang-duong.jpg",
+      "price": "339.000",
+      "oldPrice": "345.000",
+      "categoryId": 1
+    },
+    {
+      "id": 7,
+      "name": "Đông trùng hạ thảo Fine Japan Cordyceps 120 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507958-137dj3-(5).jpg",
+      "price": "1.259.000",
+      "oldPrice": "1.799.000",
+      "categoryId": 1
+    },
+    {
+      "id": 8,
+      "name": "Viên uống hỗ trợ điều trị ung thư Fine Japan Fucoidan 30 viên",
+      "image": "https://japana.vn/uploads/product/2022/04/21/268x268-1650507838-137dc2-(1).jpg",
+      "price": "1.469.000",
+      "oldPrice": "2.099.000",
+      "categoryId": 1
+    }
+  ]
+}

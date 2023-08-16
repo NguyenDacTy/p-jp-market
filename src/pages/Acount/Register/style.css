@@ -1,0 +1,93 @@
+.register-container {
+    display: flex;
+    margin: auto 20%;
+    padding-top: 110px;
+    padding-bottom: 20px;
+}
+
+.register-container_left {
+    margin-right: 10px;
+}
+.register-container_right {
+    border: .5px solid #e8dfdf;
+}
+.register-container__form {
+    padding: 15px;
+}
+
+.register-container__form-input {
+    width: 95%;
+    height: 40px;
+    border: 1px solid #dad1d1;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+.register-container__form-email {
+    padding-bottom: 10px;
+}
+.register-container__form-password {
+    padding-bottom: 10px;
+}
+.forget-pass {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: rgb(250, 17, 172);
+}
+.register-container__form-registerbtn {
+    width: 99%;
+    border: 1px solid #dad1d1;
+    border-radius: 4px;
+    padding: 10px;
+    color: #FFF;
+    background-color: rgb(227, 138, 153);
+    cursor: pointer;
+}
+.fs14 {
+    font-size: 14px;
+}
+.register-container__note {
+    color: rgb(148, 163, 184);
+    margin: auto 7%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.register-container__otherRegister {
+    color: rgb(148, 163, 184);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.register-container__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.register-container__btn button {
+    cursor: pointer;
+}
+.register-container__btn-fb {
+    padding: 6px 15px;
+    width: 30%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 8px;
+    margin-right: 100px;
+    border: 1px solid #FFF;
+    background-color: #3B5998;
+    color: #FFF;
+}
+.register-container__btn-gg {
+    padding: 6px 15px;
+    width: 30%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #FFF;
+    background-color: #E14B33;
+    color: #FFF;
+}

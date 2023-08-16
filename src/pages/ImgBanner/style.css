@@ -1,0 +1,20 @@
+
+.container-banner {
+    width: 100%;
+    margin: 0 auto;
+}
+.img-banner-container {
+    width: 1200px;
+    margin: auto 10%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 25px;
+}
+.banner-group {
+    width: 100%;
+    cursor: pointer;
+}
+.banner-group img {
+    width: 110px;
+    height: 90px;
+}
