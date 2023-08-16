@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
-import banner from "../../Banner/sale-he.png";
-import banner1 from "../../Banner/tpcn-orihiro.png";
-import banner2 from "../../Banner/lamdep-collagen.png";
+import banner from "../../Banner/bannerrrrrr.png";
+import banner1 from "../../Banner/banner11111.png";
+import banner2 from "../../Banner/banner22222.png";
 
 const colors = [banner, banner1, banner2];
 const delay = 3000;
