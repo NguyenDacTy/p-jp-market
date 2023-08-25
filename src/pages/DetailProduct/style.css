@@ -1,5 +1,119 @@
+
+.bg-detail-container {
+    background-color: #e7e4e4da;
+}
 .detail-container {
     margin: auto 10%;
     padding-top: 110px;
     padding-bottom: 20px;
+}
+.detail-container__header {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+}
+.detail-container__header-left {
+    margin-right: 50px;
+}
+.detail-container__header-left img {
+    border: 1px solid #b8b1b1;
+    width: 300px;
+    height: 300px;
+}
+
+
+.header-right__up-title {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-right__up-infor {
+    padding: 10px;
+    background-color: #f6eeee;
+    border-radius: 2px;
+}
+.up-infor__price {
+    margin: 10px 6px;
+    font-size: 28px;
+    display: flex;
+}
+.up-infor__price-now {
+    color: red;
+    margin: 0;
+    font-weight: bold;
+}
+.up-infor__price-old {
+    color: #b8b1b1;
+    padding-left: 20px;
+}
+.up-infor__btn {
+    display: flex;
+    gap: 50px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+.up-infor__btn-add {
+    width: 150px;
+    padding: 15px;
+    border: none;
+    background-color: rgb(255, 162, 0);
+    color: #FFF;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.up-infor__btn-add:hover {
+    background-color: rgb(255, 182, 56);
+}
+.up-infor__btn-buy {
+    width: 150px;
+    padding: 15px;
+    border: none;
+    background-color: rgb(255, 47, 0);
+    color: #FFF;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.up-infor__btn-buy:hover {
+    background-color: rgba(252, 54, 9, 0.756);
+}
+
+.header-right__down {
+    border: 1px solid #d6cccc;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+}
+.header-right__down img {
+    width: 22px;
+    height: 26px;
+}
+.policy-product {
+    display: flex;
+    gap: 15px;
+}
+.pt-10 {
+    padding-top: 10px;
+}
+
+.detail-container__body {
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.detail-container__body-title {
+    margin: 0;
+    padding: 10px;
+    border-bottom: 2px solid orange;
+}
+.detail-container__body-content {
+    padding: 20px;
+    padding-top: 0;
 }

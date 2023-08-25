@@ -1,15 +1,15 @@
 import axios from "axios";
 
-export const hotProductsAPIs = {
+export const hotProductAPIs = {
   getAllHotProducts: async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_BE_URL}hotProducts`
     );
     return response;
   },
-  getHotProductById: async (hotProductsId) => {
+  getHotProductById: async (hotProductId) => {
     const response = await axios.get(
-      `${process.env.REACT_APP_BE_URL}hotProducts/${hotProductsId}`
+      `${process.env.REACT_APP_BE_URL}hotProducts/${hotProductId}`
     );
     return response.data;
   },

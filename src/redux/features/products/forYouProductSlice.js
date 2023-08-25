@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { forYouProductsAPIs } from "../../../api/forYouProducts";
+import { forYouProductAPIs } from "../../../api/forYouProducts";
 
 const initialState = {
   isLoading: false,
@@ -10,7 +10,7 @@ const initialState = {
 export const actFectchAllForYouProduct = createAsyncThunk(
   "forYouProducts/fetchAllTask",
   async () => {
-    const { data } = await forYouProductsAPIs.getAllForYouProducts();
+    const { data } = await forYouProductAPIs.getAllForYouProducts();
     return data;
   }
 );

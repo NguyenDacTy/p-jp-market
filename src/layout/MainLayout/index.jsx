@@ -7,11 +7,11 @@ import ImgBanner from "../../pages/ImgBanner";
 import FooterComponent from "../../components/FooterComponent";
 import MainBanner from "../../pages/MainBanner";
 
-const MainLayout = () => {
+const MainLayout = (props) => {
   return (
     <div className="container-main">
       <div className="header-component">
-        <HeaderComponent />
+        <HeaderComponent {...props} />
       </div>
       <div className="slide-show">
         <Slideshow />

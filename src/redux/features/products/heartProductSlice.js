@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { heartProductsAPIs } from "../../../api/heartProducts";
+import { heartProductAPIs } from "../../../api/heartProducts";
 
 const initialState = {
   isLoading: false,
@@ -10,7 +10,7 @@ const initialState = {
 export const actFectchAllHeartProduct = createAsyncThunk(
   "heartProducts/fetchAllTask",
   async () => {
-    const { data } = await heartProductsAPIs.getAllHeartProducts();
+    const { data } = await heartProductAPIs.getAllHeartProducts();
     return data;
   }
 );
@@ -39,6 +39,5 @@ const heartProductSlice = createSlice({
   },
 });
 
-export const { actSetHeartProducts, getAllHeartProducts } =
-  heartProductSlice.actions;
+export const { actSetHeartProducts } = heartProductSlice.actions;
 export const heartProductsReducer = heartProductSlice.reducer;

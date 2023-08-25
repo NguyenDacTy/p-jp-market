@@ -13,7 +13,6 @@ export const ROUTES = {
   PAYMENT_PRODUCT: "/payment-product",
   FORYOU_PRODUCT: "/for-you-product",
   FAVORITE_PRODUCT: "/favorite-product",
-  MOM_AND_BABY_PRODUCT: "/mom-baby-product",
   BEST_SELLER: "/best-seller",
   HOT_BRAND: "/hot-brand",
   HOT_COMBO: "/hot-combo",

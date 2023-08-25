@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { hotProductsAPIs } from "../../../api/hotProdducts";
+import { hotProductAPIs } from "../../../api/hotProdducts";
 
 const initialState = {
   isLoading: false,
@@ -10,7 +10,7 @@ const initialState = {
 export const actFectchAllHotProduct = createAsyncThunk(
   "hotProducts/fetchAllTask",
   async () => {
-    const { data } = await hotProductsAPIs.getAllHotProducts();
+    const { data } = await hotProductAPIs.getAllHotProducts();
     return data;
   }
 );
@@ -39,6 +39,5 @@ const hotProductSlice = createSlice({
   },
 });
 
-export const { actSetHotProducts, getAllHotProducts } =
-  hotProductSlice.actions;
+export const { actSetHotProducts, getAllHotProducts } = hotProductSlice.actions;
 export const hotProductsReducer = hotProductSlice.reducer;

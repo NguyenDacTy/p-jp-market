@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import tpcnBanner from "../../img-banner/tpcn-title-banner.png";
@@ -8,7 +8,6 @@ import csctBanner from "../../img-banner/csct-title-banner.png";
 import spmvBanner from "../../img-banner/spmv2-title-banner.png";
 import spbcBanner from "../../img-banner/spbc2-title-banner.png";
 import gycbBanner from "../../img-banner/gycb-title-banner.png";
-import productImg from "../../product-img/taoxoan1.jpg";
 import { ROUTES } from "../../const/routes";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,16 +19,37 @@ import { actFectchAllBodyProduct } from "../../redux/features/products/bodyProdu
 import { actFectchAllNewProduct } from "../../redux/features/products/newProductSlice";
 import { actFectchAllHotProduct } from "../../redux/features/products/hotProductSlice";
 import { actFectchAllForYouProduct } from "../../redux/features/products/forYouProductSlice";
+import { MyContext } from "../../context";
 
-const AllProduct = () => {
+const AllProduct = (props) => {
+  const { cartStore, setCartStore } = useContext(MyContext);
+
+  const handleSubmit = (product) => {
+    const newItem = { ...product };
+    newItem.qty = 1;
+    let current = props.qtyCart + 1;
+    const existingItem = cartStore.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      existingItem.qty += 1;
+    } else {
+      setCartStore([...cartStore, newItem]);
+    }
+    props.setQtyCart(current);
+  };
+
+  const handleSubmitDetail = (item) => {
+    setCartStore([...cartStore, item]);
+  };
+
   const dispatch = useDispatch();
   const { isLoading, products } = useSelector((state) => state.product);
-  const { heartProducts } = useSelector((state) => state.heartProducts);
-  const { beautyProducts } = useSelector((state) => state.beautyProducts);
-  const { bodyProducts } = useSelector((state) => state.bodyProducts);
-  // const { newProducts } = useSelector((state) => state.newProducts);
-  // const { hotProducts } = useSelector((state) => state.hotProducts);
-  // const { forYouProducts } = useSelector((state) => state.forYouProducts);
+  const { heartProducts } = useSelector((state) => state.heartProduct);
+  const { beautyProducts } = useSelector((state) => state.beautyProduct);
+  const { bodyProducts } = useSelector((state) => state.bodyProduct);
+  const { newProducts } = useSelector((state) => state.newProduct);
+  const { hotProducts } = useSelector((state) => state.hotProduct);
+  const { forYouProducts } = useSelector((state) => state.forYouProduct);
 
   // useSelector((state) => console.log(state, 'state'));
 
@@ -38,9 +58,9 @@ const AllProduct = () => {
     dispatch(actFectchAllHeartProduct());
     dispatch(actFectchAllBeautyProduct());
     dispatch(actFectchAllBodyProduct());
-    // dispatch(actFectchAllNewProduct());
-    // dispatch(actFectchAllHotProduct());
-    // dispatch(actFectchAllForYouProduct());
+    dispatch(actFectchAllNewProduct());
+    dispatch(actFectchAllHotProduct());
+    dispatch(actFectchAllForYouProduct());
   }, []);
 
   if (isLoading) {
@@ -64,12 +84,17 @@ const AllProduct = () => {
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
-                  <Link to={ROUTES.DETAIL_PRODUCT} title={item.name}>
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                    title={item.name}
+                  >
                     <img src={item.image} alt={item.name} />
                   </Link>
                 </div>
                 <div className="item-product__detail">
                   <Link
+                    onClick={() => handleSubmitDetail(item)}
                     className="detail-title-link"
                     to={ROUTES.DETAIL_PRODUCT}
                   >
@@ -85,7 +110,10 @@ const AllProduct = () => {
                     </p>
                   </div>
                   <div className="detail-price__btn">
-                    <button className="detail-price__btn-add">
+                    <button
+                      onClick={() => handleSubmit(item)}
+                      className="detail-price__btn-add"
+                    >
                       Add to Cart
                     </button>
                     <Link to={ROUTES.CART}>
@@ -112,7 +140,11 @@ const AllProduct = () => {
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
-                  <Link to={ROUTES.DETAIL_PRODUCT} title={item.name}>
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                    title={item.name}
+                  >
                     <img
                       className="box-img__img"
                       src={item.image}
@@ -122,6 +154,7 @@ const AllProduct = () => {
                 </div>
                 <div className="item-product__detail">
                   <Link
+                    onClick={() => handleSubmitDetail(item)}
                     className="detail-title-link"
                     to={ROUTES.DETAIL_PRODUCT}
                   >
@@ -137,7 +170,10 @@ const AllProduct = () => {
                     </p>
                   </div>
                   <div className="detail-price__btn">
-                    <button className="detail-price__btn-add">
+                    <button
+                      onClick={() => handleSubmit(item)}
+                      className="detail-price__btn-add"
+                    >
                       Add to Cart
                     </button>
                     <Link to={ROUTES.CART}>
@@ -164,12 +200,17 @@ const AllProduct = () => {
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
-                  <Link to={ROUTES.DETAIL_PRODUCT} title={item.name}>
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                    title={item.name}
+                  >
                     <img src={item.image} alt={item.name} />
                   </Link>
                 </div>
                 <div className="item-product__detail">
                   <Link
+                    onClick={() => handleSubmitDetail(item)}
                     className="detail-title-link"
                     to={ROUTES.DETAIL_PRODUCT}
                   >
@@ -185,7 +226,10 @@ const AllProduct = () => {
                     </p>
                   </div>
                   <div className="detail-price__btn">
-                    <button className="detail-price__btn-add">
+                    <button
+                      onClick={() => handleSubmit(item)}
+                      className="detail-price__btn-add"
+                    >
                       Add to Cart
                     </button>
                     <Link to={ROUTES.CART}>
@@ -212,12 +256,17 @@ const AllProduct = () => {
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
-                  <Link to={ROUTES.DETAIL_PRODUCT} title={item.name}>
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                    title={item.name}
+                  >
                     <img src={item.image} alt={item.name} />
                   </Link>
                 </div>
                 <div className="item-product__detail">
                   <Link
+                    onClick={() => handleSubmitDetail(item)}
                     className="detail-title-link"
                     to={ROUTES.DETAIL_PRODUCT}
                   >
@@ -233,7 +282,10 @@ const AllProduct = () => {
                     </p>
                   </div>
                   <div className="detail-price__btn">
-                    <button className="detail-price__btn-add">
+                    <button
+                      onClick={() => handleSubmit(item)}
+                      className="detail-price__btn-add"
+                    >
                       Add to Cart
                     </button>
                     <Link to={ROUTES.CART}>
@@ -256,16 +308,21 @@ const AllProduct = () => {
           </Link>
         </div>
         <div className="title-list">
-          {/* {newProducts.map((item) => {
+          {newProducts.map((item) => {
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
-                  <Link to={ROUTES.DETAIL_PRODUCT} title={item.name}>
-                    <img src={productImg} alt={item.name} />
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                    title={item.name}
+                  >
+                    <img src={item.image} alt={item.name} />
                   </Link>
                 </div>
                 <div className="item-product__detail">
                   <Link
+                    onClick={() => handleSubmitDetail(item)}
                     className="detail-title-link"
                     to={ROUTES.DETAIL_PRODUCT}
                   >
@@ -276,12 +333,15 @@ const AllProduct = () => {
                     style={{ display: "flex" }}
                   >
                     <p className="price">{item.price} đ</p>
-                    <p className="old-price">
+                    {/* <p className="old-price">
                       <strike>{item.oldPrice} đ</strike>
-                    </p>
+                    </p> */}
                   </div>
                   <div className="detail-price__btn">
-                    <button className="detail-price__btn-add">
+                    <button
+                      onClick={() => handleSubmit(item)}
+                      className="detail-price__btn-add"
+                    >
                       Add to Cart
                     </button>
                     <Link to={ROUTES.CART}>
@@ -291,7 +351,7 @@ const AllProduct = () => {
                 </div>
               </div>
             );
-          })} */}
+          })}
         </div>
       </div>
       <div className="all-product__cssk all-product__tpcn">
@@ -304,16 +364,21 @@ const AllProduct = () => {
           </Link>
         </div>
         <div className="title-list">
-          {/* {hotProducts.map((item) => {
+          {hotProducts.map((item) => {
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
-                  <Link to={ROUTES.DETAIL_PRODUCT} title={item.name}>
-                    <img src={productImg} alt={item.name} />
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                    title={item.name}
+                  >
+                    <img src={item.image} alt={item.name} />
                   </Link>
                 </div>
                 <div className="item-product__detail">
                   <Link
+                    onClick={() => handleSubmitDetail(item)}
                     className="detail-title-link"
                     to={ROUTES.DETAIL_PRODUCT}
                   >
@@ -329,7 +394,10 @@ const AllProduct = () => {
                     </p>
                   </div>
                   <div className="detail-price__btn">
-                    <button className="detail-price__btn-add">
+                    <button
+                      onClick={() => handleSubmit(item)}
+                      className="detail-price__btn-add"
+                    >
                       Add to Cart
                     </button>
                     <Link to={ROUTES.CART}>
@@ -339,7 +407,7 @@ const AllProduct = () => {
                 </div>
               </div>
             );
-          })} */}
+          })}
         </div>
       </div>
       <div className="all-product__cssk all-product__tpcn">
@@ -352,16 +420,21 @@ const AllProduct = () => {
           </Link>
         </div>
         <div className="title-list">
-          {/* {forYouProducts.map((item) => {
+          {forYouProducts.map((item) => {
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
-                  <Link to={ROUTES.DETAIL_PRODUCT} title={item.name}>
-                    <img src={productImg} alt={item.name} />
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                    title={item.name}
+                  >
+                    <img src={item.image} alt={item.name} />
                   </Link>
                 </div>
                 <div className="item-product__detail">
                   <Link
+                    onClick={() => handleSubmitDetail(item)}
                     className="detail-title-link"
                     to={ROUTES.DETAIL_PRODUCT}
                   >
@@ -377,7 +450,10 @@ const AllProduct = () => {
                     </p>
                   </div>
                   <div className="detail-price__btn">
-                    <button className="detail-price__btn-add">
+                    <button
+                      onClick={() => handleSubmit(item)}
+                      className="detail-price__btn-add"
+                    >
                       Add to Cart
                     </button>
                     <Link to={ROUTES.CART}>
@@ -387,7 +463,7 @@ const AllProduct = () => {
                 </div>
               </div>
             );
-          })} */}
+          })}
         </div>
       </div>
     </div>

@@ -12,7 +12,9 @@ import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
 import { ROUTES } from "../../const/routes";
 
-const HeaderComponent = () => {
+const HeaderComponent = (props) => {
+  const count = props.qtyCart;
+
   return (
     <div className="container container-fake">
       <div className="header">
@@ -41,7 +43,7 @@ const HeaderComponent = () => {
                   title="Giỏ hàng"
                 />
               </Link>
-              <span className="number-cart">0</span>
+              <span className="number-cart">{count}</span>
             </div>
             <Link to={ROUTES.ACOUNT_LOGIN}>
               <div>
@@ -62,7 +64,6 @@ const HeaderComponent = () => {
             <Link to={ROUTES.FORYOU_PRODUCT}>Dành cho bạn</Link>
             <Link to={ROUTES.FAVORITE_PRODUCT}>Ưa chuộng</Link>
             <Link to={ROUTES.HEART_PRODUCT}>Sức Khỏe</Link>
-            <Link to={ROUTES.MOM_AND_BABY_PRODUCT}>Mẹ và bé</Link>
           </p>
         </div>
       </div>

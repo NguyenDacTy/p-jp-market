@@ -1,15 +1,15 @@
 import axios from "axios";
 
-export const forYouProductsAPIs = {
+export const forYouProductAPIs = {
   getAllForYouProducts: async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_BE_URL}forYouProducts`
     );
     return response;
   },
-  getForYouProductById: async (forYouProductsId) => {
+  getForYouProductById: async (forYouProductId) => {
     const response = await axios.get(
-      `${process.env.REACT_APP_BE_URL}hotProducts/${forYouProductsId}`
+      `${process.env.REACT_APP_BE_URL}hotProducts/${forYouProductId}`
     );
     return response.data;
   },

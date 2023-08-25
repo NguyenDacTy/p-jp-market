@@ -9,6 +9,7 @@
     border-radius: 6px;
     box-shadow: -1px 1px 4px 0px rgba(137, 152, 172, 0.5);
     margin-right: 10px;
+    width: 760px;
 }
 .cart-product__title {
     padding: 0 0 10px 10px;
@@ -28,6 +29,7 @@
 .infor-content__text {
     font-size: 15px;
     padding-bottom: 15px;
+    max-width: 450px;
 }
 .infor-content__del {
     font-size: 16px;
