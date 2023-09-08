@@ -18,3 +18,19 @@
     width: 110px;
     height: 90px;
 }
+
+@media screen and (max-width: 1200px) {
+    .img-banner-container {
+      width: 1200px;
+    }
+  }
+@media screen and (max-width: 768px) {
+    .img-banner-container {
+      min-width: 768px;
+    }
+  }
+@media screen and (max-width: 480px) {
+    .img-banner-container {
+      min-width: 480px;
+    }
+  }

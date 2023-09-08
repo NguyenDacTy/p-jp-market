@@ -1,4 +1,4 @@
-import React, {  useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./style.css";
 import HeaderComponent from "../../../components/HeaderComponent";
 import FooterComponent from "../../../components/FooterComponent";
@@ -10,12 +10,20 @@ import { actFectchAllProduct } from "../../../redux/features/products/productSli
 import { MyContext } from "../../../context";
 
 const PotionProduct = (props) => {
-  const { cartStore, setCartStore}= useContext(MyContext)
+  const { cartStore, setCartStore } = useContext(MyContext);
 
-  const handleSubmit = (item) => {
+  const handleSubmit = (product) => {
+    const newItem = { ...product };
+    newItem.qty = 1;
     let current = props.qtyCart + 1;
+    const existingItem = cartStore.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      existingItem.qty += 1;
+    } else {
+      setCartStore([...cartStore, newItem]);
+    }
     props.setQtyCart(current);
-    setCartStore([...cartStore, item])
   };
 
   const dispatch = useDispatch();
@@ -24,6 +32,11 @@ const PotionProduct = (props) => {
   useEffect(() => {
     dispatch(actFectchAllProduct());
   }, []);
+
+  const handleSubmitDetail = (item) => {
+    setCartStore([item]);
+  };
+
   return (
     <div>
       <HeaderComponent {...props} />
@@ -35,22 +48,35 @@ const PotionProduct = (props) => {
         </div>
         <div className="title-list">
           {products.map((item) => {
+            const formatPrice = new Intl.NumberFormat().format(item.price);
+            const formatOldPrice = new Intl.NumberFormat().format(
+              item.oldPrice
+            );
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
-                  <Link to={ROUTES.DETAIL_PRODUCT} title={item.name}>
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                    title={item.name}
+                  >
                     <img src={item.image} alt={item.name} />
                   </Link>
                 </div>
                 <div className="item-product__detail">
-                  <h5 className="item-product__detail-title">{item.name}</h5>
+                  <Link
+                    onClick={() => handleSubmitDetail(item)}
+                    to={ROUTES.DETAIL_PRODUCT}
+                  >
+                    <h5 className="item-product__detail-title">{item.name}</h5>
+                  </Link>
                   <div
                     className="item-product__detail-price"
                     style={{ display: "flex" }}
                   >
-                    <p className="price">{item.price} đ</p>
+                    <p className="price">{formatPrice}.000 đ</p>
                     <p className="old-price">
-                      <strike>{item.oldPrice} đ</strike>
+                      <strike>{formatOldPrice}.000 đ</strike>
                     </p>
                   </div>
                   <div className="detail-price__btn">

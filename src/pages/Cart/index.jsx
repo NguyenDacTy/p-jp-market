@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import HeaderComponent from "../../components/HeaderComponent";
 import FooterComponent from "../../components/FooterComponent";
@@ -7,50 +7,44 @@ import { ROUTES } from "../../const/routes";
 import { MyContext } from "../../context";
 
 const Cart = (props) => {
-  const count = props.qtyCart;
-
   const { cartStore, setCartStore } = useContext(MyContext);
 
   const removeItem = (productId) => {
-    let current = props.qtyCart - 1;
-
-    const newItem = { ...productId };
-
-    const updateCartItems = cartStore.map((item) => item.id !== productId);
-    setCartStore([updateCartItems]);
-    console.log(updateCartItems, "sagdaef");
-
-    if (current > 0) {
-      props.setQtyCart(parseInt(current));
-    } else {
-      props.setQtyCart(0);
-    }
+    const updateCartItems = cartStore.filter((item) => item.id !== productId);
+    setCartStore(updateCartItems);
   };
 
-  const handlePlusSubmit = () => {
-    let current = props.qtyCart + 1;
-    props.setQtyCart(parseInt(current));
-  };
-  const handleMinusSubmit = () => {
-    let current = props.qtyCart - 1;
-    if (current > 0) {
-      props.setQtyCart(parseInt(current));
-    } else {
-      props.setQtyCart(0);
-    }
-  };
-  // const { cartStore, setCartStore } = useContext(MyContext);
+  // const handlePlusSubmit = () => {
+  //   props.setQtyCart(props.qtyCart + 1);
+  // };
+  // const handleMinusSubmit = () => {
+  //   if (props.qtyCart > 1) {
+  //     props.setQtyCart(props.qtyCart - 1);
+  //   } else {
+  //     props.setQtyCart(0);
+  //   }
+  // };
 
   return (
     <div>
       <HeaderComponent {...props} />
       <div className="cart-container">
         <div className="cart-container__cart-product">
-          <p className="cart-product__title">GIỎ HÀNG - {count} sản phẩm</p>
-          <div style={{textAlign: 'center'}}>{cartStore.length === 0 ? "Chưa có sản phẩm " : ""}</div>
+          <p className="cart-product__title">
+            GIỎ HÀNG - {cartStore.length} sản phẩm
+          </p>
+          <div style={{ textAlign: "center" }}>
+            {cartStore.length === 0 ? "Chưa có sản phẩm " : ""}
+          </div>
           {cartStore.map((item) => {
+            var current = item.qty;
+
+            const handlePlusSubmit = () => {};
+            const handleMinusSubmit = () => {};
+
+            const formatPrice = new Intl.NumberFormat().format(item.price);
             return (
-              <div key={item.id}>
+              <div key={item}>
                 <div className="cart-product__infor">
                   <img src={item.image} />
                   <div className="cart-product__infor-content">
@@ -63,11 +57,11 @@ const Cart = (props) => {
                     </p>
                   </div>
                   <span className="cart-product__infor-price">
-                    {item.price}
+                    {formatPrice}.000 đ
                   </span>
                   <div className="cart-product__infor-btn">
                     <button
-                      onClick={() => handleMinusSubmit(item)}
+                      onClick={() => handleMinusSubmit()}
                       className="infor-btn__minus infor-btn"
                     >
                       -
@@ -75,10 +69,10 @@ const Cart = (props) => {
                     <input
                       className="infor-btn__input"
                       disabled
-                      value={item.qty}
+                      value={current}
                     />
                     <button
-                      onClick={() => handlePlusSubmit(item)}
+                      onClick={() => handlePlusSubmit()}
                       className="infor-btn__flus infor-btn"
                     >
                       +
@@ -92,12 +86,33 @@ const Cart = (props) => {
         <div className="cart-container__order-product">
           <div className="order-product__price">
             <div className="order-product__calculator">
-              <p>Tạm tính:</p>
-              <p>asd đ</p>
+              <p className="title-now-price">Tạm tính:</p>
+              <p className="totalPrice">
+                {cartStore.map((item) => {
+                  const nowTotal = new Intl.NumberFormat().format(
+                    item.price * item.qty
+                  );
+                  return (
+                    <ul className="now-price">
+                      <li>{nowTotal}.000 đ</li>
+                    </ul>
+                  );
+                })}
+              </p>
             </div>
             <div className="order-product__total">
-              <p>Tổng cộng:</p>
-              <p style={{ color: "red" }}>asd đ</p>
+              <p className="title-final-price">Tổng cộng:</p>
+              {cartStore.map((item) => {
+                const nowTotal = new Intl.NumberFormat().format(
+                  item.price * item.qty
+                );
+
+                return (
+                  <p style={{ color: "red" }} className="totalPrice">
+                    {nowTotal}.000 đ
+                  </p>
+                );
+              })}
             </div>
           </div>
           <Link to={ROUTES.PAYMENT_PRODUCT}>

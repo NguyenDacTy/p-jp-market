@@ -39,7 +39,7 @@ const AllProduct = (props) => {
   };
 
   const handleSubmitDetail = (item) => {
-    setCartStore([...cartStore, item]);
+    setCartStore([item]);
   };
 
   const dispatch = useDispatch();
@@ -50,8 +50,6 @@ const AllProduct = (props) => {
   const { newProducts } = useSelector((state) => state.newProduct);
   const { hotProducts } = useSelector((state) => state.hotProduct);
   const { forYouProducts } = useSelector((state) => state.forYouProduct);
-
-  // useSelector((state) => console.log(state, 'state'));
 
   useEffect(() => {
     dispatch(actFectchAllProduct());
@@ -81,6 +79,10 @@ const AllProduct = (props) => {
         </div>
         <div className="title-list">
           {products.map((item) => {
+            const formatPrice = new Intl.NumberFormat().format(item.price);
+            const formatOldPrice = new Intl.NumberFormat().format(
+              item.oldPrice
+            );
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
@@ -104,9 +106,9 @@ const AllProduct = (props) => {
                     className="item-product__detail-price"
                     style={{ display: "flex" }}
                   >
-                    <p className="price">{item.price} đ</p>
+                    <p className="price">{formatPrice}.000 đ</p>
                     <p className="old-price">
-                      <strike>{item.oldPrice} đ</strike>
+                      <strike>{formatOldPrice}.000 đ</strike>
                     </p>
                   </div>
                   <div className="detail-price__btn">
@@ -137,6 +139,10 @@ const AllProduct = (props) => {
         </div>
         <div className="title-list">
           {heartProducts.map((item) => {
+            const formatPrice = new Intl.NumberFormat().format(item.price);
+            const formatOldPrice = new Intl.NumberFormat().format(
+              item.oldPrice
+            );
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
@@ -164,9 +170,9 @@ const AllProduct = (props) => {
                     className="item-product__detail-price"
                     style={{ display: "flex" }}
                   >
-                    <p className="price">{item.price} đ</p>
+                    <p className="price">{formatPrice}.000 đ</p>
                     <p className="old-price">
-                      <strike>{item.oldPrice} đ</strike>
+                      <strike>{formatOldPrice}.000 đ</strike>
                     </p>
                   </div>
                   <div className="detail-price__btn">
@@ -197,6 +203,10 @@ const AllProduct = (props) => {
         </div>
         <div className="title-list">
           {beautyProducts.map((item) => {
+            const formatPrice = new Intl.NumberFormat().format(item.price);
+            const formatOldPrice = new Intl.NumberFormat().format(
+              item.oldPrice
+            );
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
@@ -220,9 +230,9 @@ const AllProduct = (props) => {
                     className="item-product__detail-price"
                     style={{ display: "flex" }}
                   >
-                    <p className="price">{item.price} đ</p>
+                    <p className="price">{formatPrice}.000 đ</p>
                     <p className="old-price">
-                      <strike>{item.oldPrice} đ</strike>
+                      <strike>{formatOldPrice}.000 đ</strike>
                     </p>
                   </div>
                   <div className="detail-price__btn">
@@ -253,6 +263,10 @@ const AllProduct = (props) => {
         </div>
         <div className="title-list">
           {bodyProducts.map((item) => {
+            const formatPrice = new Intl.NumberFormat().format(item.price);
+            const formatOldPrice = new Intl.NumberFormat().format(
+              item.oldPrice
+            );
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
@@ -276,9 +290,9 @@ const AllProduct = (props) => {
                     className="item-product__detail-price"
                     style={{ display: "flex" }}
                   >
-                    <p className="price">{item.price} đ</p>
+                    <p className="price">{formatPrice}.000 đ</p>
                     <p className="old-price">
-                      <strike>{item.oldPrice} đ</strike>
+                      <strike>{formatOldPrice}.000 đ</strike>
                     </p>
                   </div>
                   <div className="detail-price__btn">
@@ -309,6 +323,10 @@ const AllProduct = (props) => {
         </div>
         <div className="title-list">
           {newProducts.map((item) => {
+            const formatPrice = new Intl.NumberFormat().format(item.price);
+            // const formatOldPrice = new Intl.NumberFormat().format(
+            //   item.oldPrice
+            // );
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
@@ -332,7 +350,7 @@ const AllProduct = (props) => {
                     className="item-product__detail-price"
                     style={{ display: "flex" }}
                   >
-                    <p className="price">{item.price} đ</p>
+                    <p className="price">{formatPrice}.000 đ</p>
                     {/* <p className="old-price">
                       <strike>{item.oldPrice} đ</strike>
                     </p> */}
@@ -365,6 +383,10 @@ const AllProduct = (props) => {
         </div>
         <div className="title-list">
           {hotProducts.map((item) => {
+            const formatPrice = new Intl.NumberFormat().format(item.price);
+            const formatOldPrice = new Intl.NumberFormat().format(
+              item.oldPrice
+            );
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
@@ -388,9 +410,9 @@ const AllProduct = (props) => {
                     className="item-product__detail-price"
                     style={{ display: "flex" }}
                   >
-                    <p className="price">{item.price} đ</p>
+                    <p className="price">{formatPrice}.000 đ</p>
                     <p className="old-price">
-                      <strike>{item.oldPrice} đ</strike>
+                      <strike>{formatOldPrice}.000 đ</strike>
                     </p>
                   </div>
                   <div className="detail-price__btn">
@@ -421,6 +443,10 @@ const AllProduct = (props) => {
         </div>
         <div className="title-list">
           {forYouProducts.map((item) => {
+            const formatPrice = new Intl.NumberFormat().format(item.price);
+            const formatOldPrice = new Intl.NumberFormat().format(
+              item.oldPrice
+            );
             return (
               <div className="item-product" key={item.id}>
                 <div className="item-product__box-img">
@@ -444,9 +470,9 @@ const AllProduct = (props) => {
                     className="item-product__detail-price"
                     style={{ display: "flex" }}
                   >
-                    <p className="price">{item.price} đ</p>
+                    <p className="price">{formatPrice}.000 đ</p>
                     <p className="old-price">
-                      <strike>{item.oldPrice} đ</strike>
+                      <strike>{formatOldPrice}.000 đ</strike>
                     </p>
                   </div>
                   <div className="detail-price__btn">

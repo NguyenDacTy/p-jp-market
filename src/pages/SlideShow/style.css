@@ -42,3 +42,22 @@
 .slideshowDot.active {
   background-color: #6a0dad;
 }
+
+@media screen and (max-width: 1200px) {
+  .slideshow {
+    width: 1200px;
+  }
+  .slide {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .slideshow {
+    min-width: 768px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .slideshow {
+    min-width: 480px;
+  }
+}

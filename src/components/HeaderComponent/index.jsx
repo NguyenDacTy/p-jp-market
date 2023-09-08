@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./style.css";
 import logo from "../../img/logo/JPM-logo.png";
 import { Input } from "antd";
@@ -11,9 +11,12 @@ import {
 import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
 import { ROUTES } from "../../const/routes";
+import { MyContext } from "../../context";
 
 const HeaderComponent = (props) => {
   const count = props.qtyCart;
+
+  const { cartStore, setCartStore } = useContext(MyContext);
 
   return (
     <div className="container container-fake">
@@ -43,7 +46,7 @@ const HeaderComponent = (props) => {
                   title="Giỏ hàng"
                 />
               </Link>
-              <span className="number-cart">{count}</span>
+              <span className="number-cart">{cartStore.length}</span>
             </div>
             <Link to={ROUTES.ACOUNT_LOGIN}>
               <div>
