@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./style.css";
 import HeaderComponent from "../../components/HeaderComponent";
 import FooterComponent from "../../components/FooterComponent";
 import { Input, Radio, Space, Table } from "antd";
+import { MyContext } from "../../context";
 
 const PaymentProduct = (props) => {
+  const { cartStore, setCartStore } = useContext(MyContext);
+
+  let total = 0;
+
   const handlePayment = () => {
-    console.log(handlePayment);
+    console.log(handlePayment, "agajkhfjasdj");
   };
 
   const [value, setValue] = useState(1);
@@ -124,14 +129,7 @@ const PaymentProduct = (props) => {
       key: "price",
     },
   ];
-  const data = [
-    {
-      key: "1",
-      name: "Nước uống Collagen Shinnippai Top 5.000mg (Hộp 10 chai x 50ml)",
-      quantity: 1,
-      price: "554.000 đ",
-    },
-  ];
+  // const data = [...cartStore];
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
     setValue(e.target.value);
@@ -186,10 +184,6 @@ const PaymentProduct = (props) => {
                 <Radio value={3}>Chuyển khoản qua ngân hàng</Radio>
               </Space>
             </Radio.Group>
-            {/* <Button style={{display:'flex', alignItems: 'center'}} ><Input type="radio" style={{width: '15px'}} /><span>COD - Thanh toán khi nhận hàng</span></Button>
-            <Input type="radio" />
-            <Input type="radio" />
-            <Input type="radio" /> */}
             <button className="payment-form-btn" onClick={handlePayment}>
               THANH TOÁN
             </button>
@@ -197,26 +191,45 @@ const PaymentProduct = (props) => {
         </div>
         <div className="your-order">
           <h3>Đơn hàng</h3>
-          <Table columns={columns} dataSource={data} />
-          <div>
-            <div className="your-order-total">
-              <span className="your-order-total-text">Tạm tính</span>
-              <span className="your-order-total-price">554.000 đ</span>
-            </div>
-            <hr className="division" />
-            <div className="your-order-total">
-              <span className="your-order-total-text">Tổng cộng</span>
-              <span className="your-order-total-price your-order-total-price--red">
-                554.000 đ
-              </span>
-            </div>
+          {cartStore.map((item) => {
+            const nowTotal = new Intl.NumberFormat().format(
+              item.price * item.qty
+            );
+            total += item.price * item.qty;
 
-            {/* BEM : block element modifier */}
-            {/* <div className="table" >
-              <div className="table__mouse">Chuot</div>
-              <div className="table__computer table__computer--red">may tinh</div>
-            </div> */}
-          </div>
+            return (
+              <div className="product-infor">
+                <table className="product-infor__table">
+                  <tr className="product-infor__table-up">
+                    <th className="">Sản phẩm:</th>
+                    <th>Số lượng:</th>
+                    <th>Thành tiền:</th>
+                  </tr>
+                  <tr className="product-infor__table-down">
+                    <li>{item.name}</li>
+                    <td className="table-down__qty pd-40">{item.qty}</td>
+                    <td className="table-down__nowTotal ">{nowTotal}.000 đ</td>
+                  </tr>
+                </table>
+                {/* <Table columns={columns} key={item} /> */}
+                <div>
+                  {/* <div className="your-order-total">
+                    <span className="your-order-total-text">Tạm tính</span>
+                    <span className="your-order-total-price">
+                      {nowTotal}.000 đ
+                    </span>
+                  </div> */}
+                  <hr className="division" />
+                  <div className="your-order-total">
+                    <span className="your-order-total-text">Tổng cộng</span>
+                    <span className="your-order-total-price your-order-total-price--red">
+                      {new Intl.NumberFormat().format(total)}.000 đ
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
       <FooterComponent />

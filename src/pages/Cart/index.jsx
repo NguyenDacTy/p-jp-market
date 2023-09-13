@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./style.css";
 import HeaderComponent from "../../components/HeaderComponent";
 import FooterComponent from "../../components/FooterComponent";
@@ -8,22 +8,27 @@ import { MyContext } from "../../context";
 
 const Cart = (props) => {
   const { cartStore, setCartStore } = useContext(MyContext);
+  let total = 0;
 
   const removeItem = (productId) => {
     const updateCartItems = cartStore.filter((item) => item.id !== productId);
     setCartStore(updateCartItems);
   };
 
-  // const handlePlusSubmit = () => {
-  //   props.setQtyCart(props.qtyCart + 1);
-  // };
-  // const handleMinusSubmit = () => {
-  //   if (props.qtyCart > 1) {
-  //     props.setQtyCart(props.qtyCart - 1);
-  //   } else {
-  //     props.setQtyCart(0);
-  //   }
-  // };
+  const handlePlusSubmit = (productId, index) => {
+    cartStore[index].qty += 1;
+    const arr = [...cartStore];
+    setCartStore(arr);
+  };
+  const handleMinusSubmit = (productId, index, quantity) => {
+    if (quantity < 2) {
+      removeItem(productId);
+    } else {
+      cartStore[index].qty -= 1;
+      const arr = [...cartStore];
+      setCartStore(arr);
+    }
+  };
 
   return (
     <div>
@@ -36,12 +41,8 @@ const Cart = (props) => {
           <div style={{ textAlign: "center" }}>
             {cartStore.length === 0 ? "Chưa có sản phẩm " : ""}
           </div>
-          {cartStore.map((item) => {
+          {cartStore.map((item, index) => {
             var current = item.qty;
-
-            const handlePlusSubmit = () => {};
-            const handleMinusSubmit = () => {};
-
             const formatPrice = new Intl.NumberFormat().format(item.price);
             return (
               <div key={item}>
@@ -61,7 +62,7 @@ const Cart = (props) => {
                   </span>
                   <div className="cart-product__infor-btn">
                     <button
-                      onClick={() => handleMinusSubmit()}
+                      onClick={() => handleMinusSubmit(item.id, index, current)}
                       className="infor-btn__minus infor-btn"
                     >
                       -
@@ -72,7 +73,7 @@ const Cart = (props) => {
                       value={current}
                     />
                     <button
-                      onClick={() => handlePlusSubmit()}
+                      onClick={() => handlePlusSubmit(item.id, index)}
                       className="infor-btn__flus infor-btn"
                     >
                       +
@@ -103,16 +104,11 @@ const Cart = (props) => {
             <div className="order-product__total">
               <p className="title-final-price">Tổng cộng:</p>
               {cartStore.map((item) => {
-                const nowTotal = new Intl.NumberFormat().format(
-                  item.price * item.qty
-                );
-
-                return (
-                  <p style={{ color: "red" }} className="totalPrice">
-                    {nowTotal}.000 đ
-                  </p>
-                );
+                total += item.price * item.qty;
               })}
+              <p style={{ color: "red" }} className="totalPrice">
+                {new Intl.NumberFormat().format(total)}.000 đ
+              </p>
             </div>
           </div>
           <Link to={ROUTES.PAYMENT_PRODUCT}>
