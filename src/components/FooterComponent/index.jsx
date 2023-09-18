@@ -6,7 +6,6 @@ import {
   GlobalOutlined,
   HomeTwoTone,
   InstagramOutlined,
-  SearchOutlined,
   ShopTwoTone,
   YoutubeOutlined,
 } from "@ant-design/icons";
