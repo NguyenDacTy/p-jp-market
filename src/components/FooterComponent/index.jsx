@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import {
   CheckCircleTwoTone,
@@ -6,6 +6,7 @@ import {
   GlobalOutlined,
   HomeTwoTone,
   InstagramOutlined,
+  SearchOutlined,
   ShopTwoTone,
   YoutubeOutlined,
 } from "@ant-design/icons";

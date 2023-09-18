@@ -72,16 +72,20 @@ input[type=number]::-webkit-inner-spin-button {
 .product-infor__table-up {
     width: 100%;
     display: grid;
-    grid-template-columns: 57% 20% 23%;
+    grid-template-columns: 59% 20% 21%;
     padding-bottom: 10px;
 }
 .product-infor__table-down {
     width: 100%;
     display: grid;
-    grid-template-columns: 57% 20% 23%;
+    grid-template-columns: 59% 20% 21%;
 }
 .pd-40 {
     padding-left: 30px;
+}
+.pd-10 {
+    padding-left: 15px;
+    padding-bottom: 10px;
 }
 
 .your-order {
@@ -103,7 +107,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .your-order-total-price {
-    width: 50%;
+    width: 43%;
     display: flex;
     justify-content: end;
     padding-right: 8px;

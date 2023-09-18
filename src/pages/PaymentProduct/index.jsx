@@ -11,7 +11,7 @@ const PaymentProduct = (props) => {
   let total = 0;
 
   const handlePayment = () => {
-    console.log(handlePayment, "agajkhfjasdj");
+    alert(`Đã tiếp nhận đơn hàng. Bạn sẽ sớm nhận được email từ chúng tôi.`);
   };
 
   const [value, setValue] = useState(1);
@@ -129,7 +129,6 @@ const PaymentProduct = (props) => {
       key: "price",
     },
   ];
-  // const data = [...cartStore];
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
     setValue(e.target.value);
@@ -191,45 +190,38 @@ const PaymentProduct = (props) => {
         </div>
         <div className="your-order">
           <h3>Đơn hàng</h3>
-          {cartStore.map((item) => {
-            const nowTotal = new Intl.NumberFormat().format(
-              item.price * item.qty
-            );
-            total += item.price * item.qty;
+          <div className="product-infor">
+            <table className="product-infor__table">
+              <tr className="product-infor__table-up">
+                <th className="">Sản phẩm:</th>
+                <th>Số lượng:</th>
+                <th>Thành tiền:</th>
+              </tr>
+              {cartStore.map((item) => {
+                const nowTotal = new Intl.NumberFormat().format(
+                  item.price * item.qty
+                );
+                total += item.price * item.qty;
 
-            return (
-              <div className="product-infor">
-                <table className="product-infor__table">
-                  <tr className="product-infor__table-up">
-                    <th className="">Sản phẩm:</th>
-                    <th>Số lượng:</th>
-                    <th>Thành tiền:</th>
-                  </tr>
-                  <tr className="product-infor__table-down">
-                    <li>{item.name}</li>
+                return (
+                  <tr className="product-infor__table-down" key={item.id}>
+                    <li className="pd-10">{item.name}</li>
                     <td className="table-down__qty pd-40">{item.qty}</td>
-                    <td className="table-down__nowTotal ">{nowTotal}.000 đ</td>
+                    <td className="table-down__nowTotal">{nowTotal}.000 đ</td>
                   </tr>
-                </table>
-                {/* <Table columns={columns} key={item} /> */}
-                <div>
-                  {/* <div className="your-order-total">
-                    <span className="your-order-total-text">Tạm tính</span>
-                    <span className="your-order-total-price">
-                      {nowTotal}.000 đ
-                    </span>
-                  </div> */}
-                  <hr className="division" />
-                  <div className="your-order-total">
-                    <span className="your-order-total-text">Tổng cộng</span>
-                    <span className="your-order-total-price your-order-total-price--red">
-                      {new Intl.NumberFormat().format(total)}.000 đ
-                    </span>
-                  </div>
-                </div>
+                );
+              })}
+            </table>
+            <div>
+              <hr className="division" />
+              <div className="your-order-total">
+                <span className="your-order-total-text">Tổng cộng:</span>
+                <span className="your-order-total-price your-order-total-price--red">
+                  {new Intl.NumberFormat().format(total)}.000 đ
+                </span>
               </div>
-            );
-          })}
+            </div>
+          </div>
         </div>
       </div>
       <FooterComponent />
