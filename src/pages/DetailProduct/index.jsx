@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./style.css";
 import HeaderComponent from "../../components/HeaderComponent";
 import FooterComponent from "../../components/FooterComponent";
@@ -9,9 +9,57 @@ import freeship from "../../img/list detail img/freeship.png";
 import { ROUTES } from "../../const/routes";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../context";
+import { useDispatch, useSelector } from "react-redux";
+import { actFectchAllHeightPlusProduct } from "../../redux/features/products/heightPlusProductSlice";
+import { actFectchAllHotBrandProduct } from "../../redux/features/products/hotBrandProductSlice";
+import { actFectchAllHotComboProduct } from "../../redux/features/products/hotComboProductSlice";
+
+import { actFectchAllFavoriteProduct } from "../../redux/features/products/favoriteProductSlice";
 
 const DetailProduct = (props) => {
   const { cartStore, setCartStore } = useContext(MyContext);
+  const { products } = useSelector((state) => state.product);
+  const { heartProducts } = useSelector((state) => state.heartProduct);
+  const { beautyProducts } = useSelector((state) => state.beautyProduct);
+  const { bodyProducts } = useSelector((state) => state.bodyProduct);
+  const { newProducts } = useSelector((state) => state.newProduct);
+  const { hotProducts } = useSelector((state) => state.hotProduct);
+  const { forYouProducts } = useSelector((state) => state.forYouProduct);
+  const { heightPlusProducts } = useSelector(
+    (state) => state.heightPlusProduct
+  );
+  const { hotBrandProducts } = useSelector((state) => state.hotBrandProduct);
+  const { hotComboProducts } = useSelector((state) => state.hotComboProduct);
+  const { favoriteProducts } = useSelector((state) => state.favoriteProduct);
+  const allProduct = [];
+  const { detailStore, setDetailStore } = useContext(MyContext);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actFectchAllHeightPlusProduct());
+    dispatch(actFectchAllHotBrandProduct());
+    dispatch(actFectchAllHotComboProduct());
+    dispatch(actFectchAllFavoriteProduct());
+  }, []);
+
+  const pushItem = (products) => {
+    products.map((item) => {
+      allProduct.push(item);
+    });
+  };
+  pushItem(products);
+  pushItem(beautyProducts);
+  pushItem(bodyProducts);
+  pushItem(forYouProducts);
+  pushItem(heartProducts);
+  pushItem(heightPlusProducts);
+  pushItem(hotBrandProducts);
+  pushItem(hotComboProducts);
+  pushItem(hotProducts);
+  pushItem(newProducts);
+  pushItem(favoriteProducts);
+
+  const newDetail = allProduct.filter((item) => item.code == detailStore.code);
 
   const handleSubmit = (product) => {
     const newItem = { ...product };
@@ -30,7 +78,7 @@ const DetailProduct = (props) => {
   return (
     <div>
       <HeaderComponent {...props} />
-      {cartStore.map((item) => {
+      {newDetail.map((item) => {
         const formatPrice = new Intl.NumberFormat().format(item.price);
         const formatOldPrice = new Intl.NumberFormat().format(item.oldPrice);
         return (
@@ -61,11 +109,6 @@ const DetailProduct = (props) => {
                             >
                               Add To Cart
                             </button>
-                            <Link to={ROUTES.CART}>
-                              <button className="up-infor__btn-buy">
-                                Buy Now
-                              </button>
-                            </Link>
                           </div>
                         </div>
                       </div>

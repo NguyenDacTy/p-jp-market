@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const hotProductAPIs = {
-  getAllHotProducts: async () => {
+  getAllHotProducts: async (keySearch) => {
     const response = await axios.get(
-      `${process.env.REACT_APP_BE_URL}hotProducts`
+      `${process.env.REACT_APP_BE_URL}hotProducts?q=${keySearch}`
     );
     return response;
   },

@@ -9,6 +9,7 @@ import { MyContext } from "../../context";
 const Cart = (props) => {
   const { cartStore, setCartStore } = useContext(MyContext);
   let total = 0;
+  const arrCart = JSON.parse(localStorage.getItem("carts"));
 
   const removeItem = (productId) => {
     const updateCartItems = cartStore.filter((item) => item.id !== productId);

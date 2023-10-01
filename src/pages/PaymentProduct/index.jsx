@@ -4,6 +4,8 @@ import HeaderComponent from "../../components/HeaderComponent";
 import FooterComponent from "../../components/FooterComponent";
 import { Input, Radio, Space, Table } from "antd";
 import { MyContext } from "../../context";
+import { Link, Route } from "react-router-dom";
+import { ROUTES } from "../../const/routes";
 
 const PaymentProduct = (props) => {
   const { cartStore, setCartStore } = useContext(MyContext);
@@ -183,9 +185,11 @@ const PaymentProduct = (props) => {
                 <Radio value={3}>Chuyển khoản qua ngân hàng</Radio>
               </Space>
             </Radio.Group>
-            <button className="payment-form-btn" onClick={handlePayment}>
-              THANH TOÁN
-            </button>
+            <Link to={ROUTES.ALL_PRODUCT}>
+              <button className="payment-form-btn" onClick={handlePayment}>
+                THANH TOÁN
+              </button>
+            </Link>
           </div>
         </div>
         <div className="your-order">

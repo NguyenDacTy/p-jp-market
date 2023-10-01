@@ -9,8 +9,8 @@ const initialState = {
 
 export const actFectchAllForYouProduct = createAsyncThunk(
   "forYouProducts/fetchAllTask",
-  async () => {
-    const { data } = await forYouProductAPIs.getAllForYouProducts();
+  async (keySearch) => {
+    const { data } = await forYouProductAPIs.getAllForYouProducts(keySearch);
     return data;
   }
 );

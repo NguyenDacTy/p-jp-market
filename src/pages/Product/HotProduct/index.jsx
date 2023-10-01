@@ -11,12 +11,14 @@ import { MyContext } from "../../../context";
 
 const HotProduct = (props) => {
   const { cartStore, setCartStore } = useContext(MyContext);
+  const { detailStore, setDetailStore } = useContext(MyContext);
+  const { valueSearch, setValueSearch } = useContext(MyContext);
 
   const handleSubmit = (product) => {
     const newItem = { ...product };
     newItem.qty = 1;
     let current = props.qtyCart + 1;
-    const existingItem = cartStore.find((item) => item.id === product.id);
+    const existingItem = cartStore.find((item) => item.code === product.code);
 
     if (existingItem) {
       existingItem.qty += 1;
@@ -30,11 +32,11 @@ const HotProduct = (props) => {
   const { hotProducts } = useSelector((state) => state.hotProduct);
 
   useEffect(() => {
-    dispatch(actFectchAllHotProduct());
-  }, []);
+    dispatch(actFectchAllHotProduct(valueSearch));
+  }, [valueSearch]);
 
   const handleSubmitDetail = (item) => {
-    setCartStore([item]);
+    setDetailStore(item);
   };
 
   return (
@@ -87,8 +89,13 @@ const HotProduct = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail(item)}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>

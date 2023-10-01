@@ -11,12 +11,14 @@ import { MyContext } from "../../../context";
 
 const HotBrand = (props) => {
   const { cartStore, setCartStore } = useContext(MyContext);
+  const { detailStore, setDetailStore } = useContext(MyContext);
+  const {valueSearch, setValueSearch } = useContext(MyContext);
 
   const handleSubmit = (product) => {
     const newItem = { ...product };
     newItem.qty = 1;
     let current = props.qtyCart + 1;
-    const existingItem = cartStore.find((item) => item.id === product.id);
+    const existingItem = cartStore.find((item) => item.code === product.code);
 
     if (existingItem) {
       existingItem.qty += 1;
@@ -30,11 +32,11 @@ const HotBrand = (props) => {
   const { hotBrandProducts } = useSelector((state) => state.hotBrandProduct);
 
   useEffect(() => {
-    dispatch(actFectchAllHotBrandProduct());
-  }, []);
+    dispatch(actFectchAllHotBrandProduct(valueSearch));
+  }, [valueSearch]);
 
   const handleSubmitDetail = (item) => {
-    setCartStore([item]);
+    setDetailStore(item);
   };
 
   return (
@@ -66,6 +68,7 @@ const HotBrand = (props) => {
                 <div className="item-product__detail">
                   <Link
                     onClick={() => handleSubmitDetail(item)}
+                    className="detail-title-link"
                     to={ROUTES.DETAIL_PRODUCT}
                   >
                     <h5 className="item-product__detail-title">{item.name}</h5>
@@ -86,8 +89,13 @@ const HotBrand = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail(item)}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>

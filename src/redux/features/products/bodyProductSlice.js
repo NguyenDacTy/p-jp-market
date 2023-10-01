@@ -9,8 +9,8 @@ const initialState = {
 
 export const actFectchAllBodyProduct = createAsyncThunk(
   "bodyProducts/fetchAllTask",
-  async () => {
-    const { data } = await bodyProductAPIs.getAllBodyProducts();
+  async (keySearch) => {
+    const { data } = await bodyProductAPIs.getAllBodyProducts(keySearch);
     return data;
   }
 );

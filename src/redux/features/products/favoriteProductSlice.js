@@ -9,8 +9,8 @@ const initialState = {
 
 export const actFectchAllFavoriteProduct = createAsyncThunk(
   "favoriteProducts/fetchAllTask",
-  async () => {
-    const { data } = await favoriteProductAPIs.getAllFavoriteProducts();
+  async (keySearch) => {
+    const { data } = await favoriteProductAPIs.getAllFavoriteProducts(keySearch);
     return data;
   }
 );

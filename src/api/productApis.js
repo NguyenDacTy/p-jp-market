@@ -1,8 +1,10 @@
 import axios from "axios";
 
 export const ProductAPIs = {
-  getAllProducts: async () => {
-    const response = await axios.get(`${process.env.REACT_APP_BE_URL}products`);
+  getAllProducts: async (keySearch) => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_BE_URL}products?q=${keySearch}`
+    );
     return response;
   },
   getProductById: async (productId) => {

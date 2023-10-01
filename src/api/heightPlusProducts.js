@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const heightPlusProductAPIs = {
-  getAllHeightPlusProducts: async () => {
+  getAllHeightPlusProducts: async (keySearch) => {
     const response = await axios.get(
-      `${process.env.REACT_APP_BE_URL}heightPlusProducts`
+      `${process.env.REACT_APP_BE_URL}heightPlusProducts?q=${keySearch}`
     );
     return response;
   },

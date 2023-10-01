@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined, MessageTwoTone } from "@ant-design/icons";
 import tpcnBanner from "../../img-banner/tpcn-title-banner.png";
 import csskBanner from "../../img-banner/cssk-title-banner.png";
 import tpldBanner from "../../img-banner/tpld-title-banner.png";
@@ -12,37 +12,48 @@ import { ROUTES } from "../../const/routes";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Spin } from "antd";
-import { actFectchAllProduct } from "../../redux/features/products/productSlice";
+import {
+  actFectchAllProduct,
+  actFectchProductByName,
+} from "../../redux/features/products/productSlice";
 import { actFectchAllHeartProduct } from "../../redux/features/products/heartProductSlice";
 import { actFectchAllBeautyProduct } from "../../redux/features/products/beautyProductSlice";
 import { actFectchAllBodyProduct } from "../../redux/features/products/bodyProductSlice";
 import { actFectchAllNewProduct } from "../../redux/features/products/newProductSlice";
 import { actFectchAllHotProduct } from "../../redux/features/products/hotProductSlice";
 import { actFectchAllForYouProduct } from "../../redux/features/products/forYouProductSlice";
+import logoM from "../../img/logo/JPM-logo.png";
+import checked from "../../img/blue-checked.png";
 import { MyContext } from "../../context";
 
 const AllProduct = (props) => {
-  const { cartStore, setCartStore } = useContext(MyContext);
+  const {valueSearch, setValueSearch, cartStore,  setCartStore, detailStore, setDetailStore } = useContext(MyContext);
+
+  const dispatch = useDispatch();
+
+  const [showMessage, setShowMessage] = useState(false);
+  localStorage.setItem("carts", JSON.stringify(cartStore));
+ 
 
   const handleSubmit = (product) => {
     const newItem = { ...product };
     newItem.qty = 1;
     let current = props.qtyCart + 1;
-    const existingItem = cartStore.find((item) => item.id === product.id);
+    const existingItem = cartStore.find((item) => item.code === product.code);
 
     if (existingItem) {
       existingItem.qty += 1;
     } else {
       setCartStore([...cartStore, newItem]);
     }
+
     props.setQtyCart(current);
   };
 
   const handleSubmitDetail = (item) => {
-    setCartStore([item]);
+    setDetailStore(item);
   };
 
-  const dispatch = useDispatch();
   const { isLoading, products } = useSelector((state) => state.product);
   const { heartProducts } = useSelector((state) => state.heartProduct);
   const { beautyProducts } = useSelector((state) => state.beautyProduct);
@@ -52,14 +63,14 @@ const AllProduct = (props) => {
   const { forYouProducts } = useSelector((state) => state.forYouProduct);
 
   useEffect(() => {
-    dispatch(actFectchAllProduct());
-    dispatch(actFectchAllHeartProduct());
-    dispatch(actFectchAllBeautyProduct());
-    dispatch(actFectchAllBodyProduct());
-    dispatch(actFectchAllNewProduct());
-    dispatch(actFectchAllHotProduct());
-    dispatch(actFectchAllForYouProduct());
-  }, []);
+    dispatch(actFectchAllProduct(valueSearch));
+    dispatch(actFectchAllHeartProduct(valueSearch));
+    dispatch(actFectchAllBeautyProduct(valueSearch));
+    dispatch(actFectchAllBodyProduct(valueSearch));
+    dispatch(actFectchAllNewProduct(valueSearch));
+    dispatch(actFectchAllHotProduct(valueSearch));
+    dispatch(actFectchAllForYouProduct(valueSearch));
+  }, [valueSearch]);
 
   if (isLoading) {
     return <Spin />;
@@ -118,8 +129,13 @@ const AllProduct = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail(item)}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -182,8 +198,13 @@ const AllProduct = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail(item)}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -242,8 +263,13 @@ const AllProduct = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -302,8 +328,13 @@ const AllProduct = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail(item)}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -362,8 +393,13 @@ const AllProduct = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail(item)}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -422,8 +458,13 @@ const AllProduct = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail(item)}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -482,14 +523,62 @@ const AllProduct = (props) => {
                     >
                       Add to Cart
                     </button>
-                    <Link to={ROUTES.CART}>
-                      <button className="detail-price__btn-buy">Buy Now</button>
+                    <Link
+                      to={ROUTES.DETAIL_PRODUCT}
+                      onClick={() => handleSubmitDetail(item)}
+                    >
+                      <button className="detail-price__btn-buy">
+                        Infor Product
+                      </button>
                     </Link>
                   </div>
                 </div>
               </div>
             );
           })}
+        </div>
+        <div>
+          {showMessage && (
+            <div className="message-container">
+              <div className="message-container__header">
+                <img className="header-logo" src={logoM} />
+                <div className="header-btn">
+                  <button>•••</button>
+                  <button onClick={() => setShowMessage(!showMessage)}>
+                    ▬
+                  </button>
+                </div>
+              </div>
+              <div className="message-container__body">
+                <h3>
+                  Chat với Siêu thị Nhật Bản Janpan Market{" "}
+                  <span>
+                    <img
+                      style={{ width: "18px", height: "14px" }}
+                      src={checked}
+                    />
+                  </span>
+                </h3>
+                <h5>Xin chào, cảm ơn bạn đã liên hệ!</h5>
+              </div>
+              <div className="message-container__footer">
+                <button>Bắt đầu chat</button>
+              </div>
+            </div>
+          )}
+          <MessageTwoTone
+            style={{
+              cursor: "pointer",
+              fontSize: "55px",
+              bottom: "50px",
+              display: "block",
+              overflow: "visible",
+              position: "fixed",
+              right: "70px",
+              top: "auto",
+            }}
+            onClick={() => setShowMessage(!showMessage)}
+          />
         </div>
       </div>
     </div>

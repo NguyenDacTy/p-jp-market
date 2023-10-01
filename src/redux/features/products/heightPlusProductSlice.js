@@ -9,8 +9,8 @@ const initialState = {
 
 export const actFectchAllHeightPlusProduct = createAsyncThunk(
   "heightPlusProducts/fetchAllTask",
-  async () => {
-    const { data } = await heightPlusProductAPIs.getAllHeightPlusProducts();
+  async (keySearch) => {
+    const { data } = await heightPlusProductAPIs.getAllHeightPlusProducts(keySearch);
     return data;
   }
 );

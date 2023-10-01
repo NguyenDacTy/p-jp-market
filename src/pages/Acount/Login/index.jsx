@@ -1,11 +1,85 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import inforImg from "../img/LOGIN-SIÊU THỊ NHẬT BẢN.png";
 import { FacebookFilled, GooglePlusSquareFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../const/routes";
+import { MyContext } from "../../../context";
+import { useDispatch, useSelector } from "react-redux";
+import { actFectchAllUser } from "../../../redux/features/users/userSlice";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.user);
+
+  const {
+    userName,
+    setUserName,
+    phoneNumber,
+    setPhoneNumber,
+    email,
+    setEmail,
+    passWord,
+    setPassWord,
+    lgEmail,
+    setLgEmail,
+    lgPass,
+    setLgPass,
+  } = useContext(MyContext);
+
+  const [isData, setIsData] = useState(false);
+
+  const handleLgEmail = (e) => {
+    let getLgEmail = e.target.value;
+    setLgEmail(getLgEmail);
+  };
+
+  const handleLgPass = (e) => {
+    let getLgPass = e.target.value;
+    setLgPass(getLgPass);
+  };
+
+  const handleReset = () => {
+    setEmail("");
+    setPassWord("");
+  };
+
+  const handleLogin = () => {
+    if (lgEmail !== "" && lgPass !== "") {
+      setIsData(true);
+      alert(`Đăng nhập thành công. Về trang chủ.`);
+    } else {
+      setIsData(false);
+      alert(`Thông tin không chính xác. Vui lòng xác nhận lại.`);
+    }
+  };
+
+  useEffect(() => {
+    dispatch(actFectchAllUser(lgEmail));
+    dispatch(actFectchAllUser(lgPass));
+  }, [lgEmail, lgPass]);
+
+  // function checkLogin(username, password) {
+  //   const user = users.find(
+  //     (user) => user.username === username && user.password === password
+  //   );
+  //   if (user) {
+  //     console.log("ok");
+  //   } else {
+  //     console.log("sai");
+  //   }
+  // }
+  // const username = lgEmail;
+  // const password = lgPass;
+
+  // const loginSuccess = checkLogin(username, password);
+
+  // if (loginSuccess) {
+  //   // Đăng nhập thành công - thực hiện các hành động cần thiết ở đây
+  // } else {
+  //   // Đăng nhập thất bại - có thể thông báo cho người dùng hoặc thực hiện xử lý khác
+  // }
+
   return (
     <div>
       <div className="login-container">
@@ -19,7 +93,10 @@ const LoginPage = () => {
                 ĐĂNG NHẬP
               </Link>
             </button>
-            <button className="infor-right__title-resiger">
+            <button
+              className="infor-right__title-resiger"
+              onClick={handleReset}
+            >
               <Link
                 to={ROUTES.ACOUNT_REGISTER}
                 style={{ textDecoration: "none" }}
@@ -34,6 +111,8 @@ const LoginPage = () => {
                 Email<span style={{ color: "red" }}>*</span>
               </p>
               <input
+                // value={userName}
+                onChange={handleLgEmail}
                 className="login-container__form-input"
                 placeholder="Nhập địa chỉ Email"
                 type="email"
@@ -44,6 +123,8 @@ const LoginPage = () => {
                 Mật khẩu<span style={{ color: "red" }}>*</span>
               </p>
               <input
+                // value={passWord}
+                onChange={handleLgPass}
                 className="login-container__form-input"
                 placeholder="Nhập mật khẩu"
                 type="password"
@@ -53,9 +134,35 @@ const LoginPage = () => {
               Quên mật khẩu?
             </a>
             <p>
-              <button className="login-container__form-loginbtn">
-                Đăng nhập
-              </button>
+              {/* {users.map((item) => {
+                if (item.email == lgEmail && item.passWord == lgPass) {
+                  <Link to={ROUTES.ALL_PRODUCT}>
+                    <button
+                      onClick={handleLogin}
+                      className="login-container__form-loginbtn"
+                    >
+                      Đăng nhập
+                    </button>
+                  </Link>;
+                } else {
+                  <Link to={ROUTES.ACOUNT_LOGIN}>
+                    <button
+                      onClick={handleLogin}
+                      className="login-container__form-loginbtn"
+                    >
+                      Đăng nhập
+                    </button>
+                  </Link>;
+                }
+              })} */}
+              <Link to={ROUTES.ALL_PRODUCT}>
+                <button
+                  onClick={handleLogin}
+                  className="login-container__form-loginbtn"
+                >
+                  Đăng nhập
+                </button>
+              </Link>
             </p>
           </form>
           <p className="login-container__note fs14">

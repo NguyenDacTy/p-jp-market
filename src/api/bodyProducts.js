@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const bodyProductAPIs = {
-  getAllBodyProducts: async () => {
+  getAllBodyProducts: async (keySearch) => {
     const response = await axios.get(
-      `${process.env.REACT_APP_BE_URL}bodyProducts`
+      `${process.env.REACT_APP_BE_URL}bodyProducts?q=${keySearch}`
     );
     return response;
   },

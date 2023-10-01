@@ -17,6 +17,13 @@ const HeaderComponent = (props) => {
   const count = props.qtyCart;
 
   const { cartStore, setCartStore } = useContext(MyContext);
+  const {valueSearch, setValueSearch } = useContext(MyContext);
+  const arrCart = JSON.parse(localStorage.getItem("carts"));
+
+  const handleSearch = (e) => {
+    let data = e.target.value;
+    setValueSearch(data)
+  };
 
   return (
     <div className="container container-fake">
@@ -32,6 +39,7 @@ const HeaderComponent = (props) => {
           <DropDown />
           <span className="header-baner__search-area">
             <Input
+              onChange={handleSearch}
               size="middle"
               placeholder="Search..."
               status="error"

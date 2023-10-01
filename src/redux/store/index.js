@@ -11,6 +11,7 @@ import { heightPlusProductsReducer } from "../features/products/heightPlusProduc
 import { hotBrandProductsReducer } from "../features/products/hotBrandProductSlice";
 import { hotComboProductsReducer } from "../features/products/hotComboProductSlice";
 import { allProductsReducer } from "../features/products/allProductSlice";
+import { usersReducer } from "../features/users/userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -26,5 +27,6 @@ export const store = configureStore({
     hotProduct: hotProductsReducer,
     forYouProduct: forYouProductsReducer,
     favoriteProduct: favoriteProductsReducer,
+    user: usersReducer,
   },
 });
